@@ -11,7 +11,7 @@ args = parser.parse_args()
 file_path = args.file_path
 
 # Define the regular expression pattern and the replacement text
-pattern = r'(NG45Y)\s([0-9]{2,3}\sat\s[0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})\n'
+pattern = r'(NG45Y)\s([0-9]{2,3}\sat\s[0-9]{4})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})\.([0-9]{2})(\n)*'
 replacement = r'\1\2-\3-\4 \5:\6:\7,'
 
 # Read the content of the file
