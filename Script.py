@@ -1,5 +1,6 @@
 import re
 import argparse
+import os
 
 # Set up argument parsing
 parser = argparse.ArgumentParser(description='Replace a pattern in a text file using a regular expression.')
@@ -20,8 +21,12 @@ with open(file_path, 'r') as file:
 # Replace the pattern using re.sub()
 new_content = re.sub(pattern, replacement, content)
 
-# Write the modified content back to the file
-with open(file_path, 'w') as file:
-    file.write(new_content)
+# Create the new file name with 'Corregido' appended
+base_name, ext = os.path.splitext(file_path)
+new_file_path = f"{base_name}_Corregida{ext}"
 
-print("Reemplazo completado.")
+# Write the modified content to the new file
+with open(new_file_path, 'w') as new_file:
+    new_file.write(new_content)
+
+print(f"Reemplazo completado. Archivo guardado como {new_file_path}.")
